@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Header from "../Header";
+// import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+	
 	const [columns, setColumns] = useState({
 		todo: {
 			name: "to-do",
@@ -84,12 +86,9 @@ const Dashboard = () => {
 
 	return (
 		<div>
-			{/* header */}
-			<div>
-				<Header />
-			</div>
+			
 
-			<div className="p-6 w-full min-h-screen bg-white flex flex-col items-center justify-center">
+			<div className="p-6 font-Gothic w-full min-h-screen bg-white flex flex-col items-center justify-center">
 				<div className="mb-8 flex w-full max-w-lg border border-black rounded-xl overflow-hidden shadow-sm">
 					<input
 						type="text"
@@ -126,7 +125,7 @@ const Dashboard = () => {
 					{Object.keys(columns).map((columnId) => (
 						<div
 							key={columnId}
-							className="flex-shrink-0 w-80 rounded-lg shadow-lg border border-black bg-white"
+							className="shrink-0 w-80 rounded-lg shadow-lg border border-black bg-white"
 							onDragOver={handleDragOver}
 							onDrop={(e) => handleDrop(e, columnId)}
 						>

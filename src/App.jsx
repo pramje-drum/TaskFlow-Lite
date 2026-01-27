@@ -1,16 +1,39 @@
 import Dashboard from "./assets/components/DashBoard/Dashboard";
 import LoginArea from "./assets/components/LoginForm/LoginArea";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ProtectedRoutes from "./assets/components/ProtectedRoutes/ProtectedRoutes";
+import { useState } from "react";
+import Header from "./assets/components/Header";
 
-function App() {
-	return (
-		<Router>
-			<Routes>
-				<Route path="/" element={<LoginArea />} />
-				<Route path="/dashboard" element={<Dashboard />} />
-			</Routes>
-		</Router>
-	);
-}
+const App = () => {
+	const [auth, setAuth] = useState(localStorage.getItem("token"));
+	const router = createBrowserRouter([
+		{
+			path: "/",
+			element: (
+				<div>
+					<Header auth={auth} setAuth={setAuth}/>
+					<LoginArea setAuth={setAuth} />{" "}
+				</div>
+			),
+		},
+		{
+			element: <ProtectedRoutes auth={auth} />,
+			children: [
+				{
+					path: "/dashboard",
+					element: (
+						<div>
+							<Header auth={auth} setAuth={setAuth}/>
+							<Dashboard />
+						</div>
+					),
+				},
+			],
+		},
+	]);
+
+	return <RouterProvider router={router} />;
+};
 
 export default App;

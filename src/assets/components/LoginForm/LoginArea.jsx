@@ -5,22 +5,24 @@ import { useNavigate } from "react-router-dom";
 
 const userKey = "taskReact";
 
-const LoginArea = () => {
+const LoginArea = ({ setAuth }) => {
 	const { register, handleSubmit, reset } = useForm();
 	const [isLogin, setIsLogin] = useState(true);
 	const navigate = useNavigate();
 
 	const onSubmit = (data) => {
-		const savedUser = JSON.parse(localStorage.getItem(userKey));
-
+		if (!data) return;
+		const savedUser = JSON.parse(localStorage.getItem(userKey)) || [];
 		if (isLogin) {
 			// LOGIN MODE
-			if (
-				savedUser &&
-				data.username === savedUser.username &&
-				data.password === savedUser.password
-			) {
+
+			const filter_user = savedUser.find(
+				(u) => u.username === data.username && u.password === data.password,
+			);
+
+			if (filter_user) {
 				localStorage.setItem("token", "dummy-token-123");
+				setAuth(true);
 				navigate("/dashboard");
 			} else {
 				alert("Invalid username or password");
@@ -32,18 +34,30 @@ const LoginArea = () => {
 				return;
 			}
 
-			localStorage.setItem(userKey, JSON.stringify(data));
+			//if username already exist
+			if (savedUser.some((u) => u.username === data.username)) {
+				alert("Username already Exists");
+				return;
+			}
+
+			const updated_user = [
+				...savedUser,
+				{
+					username: data.username,
+					password: data.password,
+					confirm_password: data.confirm_password,
+				},
+			];
+			localStorage.setItem(userKey, JSON.stringify(updated_user));
 			alert("Account created successfully. Please log in.");
 			setIsLogin(true);
+			reset();
 		}
 	};
 
 	return (
 		<div className="min-h-screen flex flex-col">
 			{/* header area */}
-			<div>
-				<Header />
-			</div>
 
 			<div className="flex-1 flex justify-center items-center px-4">
 				{/* form area */}
