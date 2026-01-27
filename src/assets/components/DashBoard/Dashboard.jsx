@@ -142,7 +142,7 @@ const Dashboard = () => {
 									columns[columnId].items.map((item) => (
 										<div
 											key={item.id}
-											className="p-4 mb-3 flex items-center justify-between border border-black rounded-md bg-white hover:bg-black hover:text-white transition"
+											className="p-4 mb-3 flex items-center justify-between border border-black rounded-md cursor-move bg-white hover:bg-black hover:text-white transition"
 											draggable
 											onDragStart={() => handleDragStart(columnId, item)}
 										>

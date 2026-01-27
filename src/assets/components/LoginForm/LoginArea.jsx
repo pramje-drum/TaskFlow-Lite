@@ -56,7 +56,7 @@ const LoginArea = () => {
 					{/* form */}
 					<form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
 						<div className="flex items-center gap-4">
-							<label className="w-28 text-left text-lg font-medium">
+							<label className="w-30 text-left text-lg font-medium">
 								UserName :
 							</label>
 							<input
@@ -67,7 +67,7 @@ const LoginArea = () => {
 						</div>
 
 						<div className="flex items-center gap-4">
-							<label className="w-28 text-left text-lg font-medium">
+							<label className="w-30 text-left text-lg font-medium">
 								Password :
 							</label>
 							<input
@@ -80,7 +80,7 @@ const LoginArea = () => {
 
 						{!isLogin && (
 							<div className="flex items-center gap-4">
-								<label className="w-28 text-left text-lg font-medium">
+								<label className="w-30 text-left text-lg font-medium">
 									Confirm Password :
 								</label>
 								<input
