@@ -1,0 +1,45 @@
+{
+	"tasks": [
+		{
+			"todo": {
+				"name": "to-do",
+				"items": [
+					{
+						"id": "1",
+						"content": "Make Project"
+					},
+					{
+						"id": "2",
+						"content": "Make Diagram"
+					}
+				]
+			},
+			"inProgress": {
+				"name": "in-progress",
+				"items": [
+					{
+						"id": "1",
+						"content": "Make Project"
+					},
+					{
+						"id": "2",
+						"content": "Make Diagram"
+					}
+				]
+			},
+			"completed": {
+				"name": "completed",
+				"items": [
+					{
+						"id": "1",
+						"content": "Make Project"
+					},
+					{
+						"id": "2",
+						"content": "Make Diagram"
+					}
+				]
+			}
+		}
+	]
+}
