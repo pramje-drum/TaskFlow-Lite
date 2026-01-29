@@ -1,9 +1,19 @@
 import { useState } from "react";
 import Header from "../Header";
 // import { useNavigate } from "react-router-dom";
+// import api from "../../../services/api";
+// import useAPI from "../../../services/useAPI";
 
 const Dashboard = () => {
-	
+	// const { tasks, error, loading, refresh } = useAPI();
+	// console.log(tasks);
+	// console.log(error);
+	// console.log(loading);
+
+	// const [temp, setTemp] = useState(() => {
+	// 	refresh
+	// });
+
 	const [columns, setColumns] = useState({
 		todo: {
 			name: "to-do",
@@ -86,8 +96,6 @@ const Dashboard = () => {
 
 	return (
 		<div>
-			
-
 			<div className="p-6 font-Gothic w-full min-h-screen bg-white flex flex-col items-center justify-center">
 				<div className="mb-8 flex w-full max-w-lg border border-black rounded-xl overflow-hidden shadow-sm">
 					<input

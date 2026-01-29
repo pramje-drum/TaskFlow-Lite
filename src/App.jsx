@@ -4,6 +4,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProtectedRoutes from "./assets/components/ProtectedRoutes/ProtectedRoutes";
 import { useState } from "react";
 import Header from "./assets/components/Header";
+import Temp from "./services/useAPI";
+import DashboardNEW from "./new_compo/DashBoard/DashBoardNEW";
+
 
 const App = () => {
 	const [auth, setAuth] = useState(localStorage.getItem("token"));
@@ -12,7 +15,7 @@ const App = () => {
 			path: "/",
 			element: (
 				<div>
-					<Header auth={auth} setAuth={setAuth}/>
+					<Header auth={auth} setAuth={setAuth} />
 					<LoginArea setAuth={setAuth} />{" "}
 				</div>
 			),
@@ -24,15 +27,14 @@ const App = () => {
 					path: "/dashboard",
 					element: (
 						<div>
-							<Header auth={auth} setAuth={setAuth}/>
-							<Dashboard />
+							<Header auth={auth} setAuth={setAuth} />
+							<DashboardNEW />
 						</div>
 					),
 				},
 			],
 		},
 	]);
-
 	return <RouterProvider router={router} />;
 };
 
