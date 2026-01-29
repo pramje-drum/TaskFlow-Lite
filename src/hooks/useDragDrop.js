@@ -9,7 +9,7 @@ const useDragDrop = () => {
 
 	const handleDragOver = (e) => e.preventDefault();
 
-	const handleDrop = (e, targetColumnId) => {
+	const handleDrop = (e) => {
 		e.preventDefault();
 		return draggedItem;
 	};

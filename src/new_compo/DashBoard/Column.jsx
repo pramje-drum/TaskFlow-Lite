@@ -20,7 +20,7 @@ const Column = ({
 				<span>{tasks.length}</span>
 			</div>
 
-			<div className="p-4 min-h-[300px]">
+			<div className="p-4 min-h-75">
 				{tasks.length === 0 ? (
 					<p className="text-gray-500">Drag tasks here</p>
 				) : (
