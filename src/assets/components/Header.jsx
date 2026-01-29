@@ -5,7 +5,7 @@ const Header = ({ auth, setAuth }) => {
 		setAuth(false);
 	};
 	return (
-		<div className="navbar bg-base-100 shadow-lg flex mb-26 top-0 z-1000 justify-center items-center p-6 font-ChewyFamily">
+		<div className="navbar bg-base-100 shadow-lg flex top-0 z-1000 justify-center items-center p-6 font-ChewyFamily">
 			<div>
 				<a className="text-5xl">TaskFlow-Lite</a>
 			</div>

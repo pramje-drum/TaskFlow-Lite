@@ -56,7 +56,7 @@ const LoginArea = ({ setAuth }) => {
 	};
 
 	return (
-		<div className="min-h-screen flex flex-col">
+		<div className="mt-46 flex flex-col">
 			{/* header area */}
 
 			<div className="flex-1 flex justify-center items-center px-4">
