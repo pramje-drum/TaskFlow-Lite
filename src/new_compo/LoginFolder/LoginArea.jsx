@@ -1,21 +1,26 @@
 import { useState } from "react";
-import Header from "../Header";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import Input from "./Input";
 
 const userKey = "taskReact";
 
 const LoginArea = ({ setAuth }) => {
-	const { register, handleSubmit, reset } = useForm();
+	const { control, handleSubmit, reset } = useForm({
+		defaultValues: {
+			username: "",
+			password: "",
+			confirm_password: "",
+		},
+	});
+
 	const [isLogin, setIsLogin] = useState(true);
 	const navigate = useNavigate();
 
 	const onSubmit = (data) => {
-		if (!data) return;
 		const savedUser = JSON.parse(localStorage.getItem(userKey)) || [];
-		if (isLogin) {
-			// LOGIN MODE
 
+		if (isLogin) {
 			const filter_user = savedUser.find(
 				(u) => u.username === data.username && u.password === data.password,
 			);
@@ -28,13 +33,11 @@ const LoginArea = ({ setAuth }) => {
 				alert("Invalid username or password");
 			}
 		} else {
-			// SIGNUP MODE
 			if (data.password !== data.confirm_password) {
 				alert("Passwords do not match");
 				return;
 			}
 
-			//if username already exist
 			if (savedUser.some((u) => u.username === data.username)) {
 				alert("Username already Exists");
 				return;
@@ -45,9 +48,9 @@ const LoginArea = ({ setAuth }) => {
 				{
 					username: data.username,
 					password: data.password,
-					confirm_password: data.confirm_password,
 				},
 			];
+
 			localStorage.setItem(userKey, JSON.stringify(updated_user));
 			alert("Account created successfully. Please log in.");
 			setIsLogin(true);
@@ -57,56 +60,39 @@ const LoginArea = ({ setAuth }) => {
 
 	return (
 		<div className="mt-46 flex flex-col">
-			{/* header area */}
-
 			<div className="flex-1 flex justify-center items-center px-4">
-				{/* form area */}
 				<div className="font-Gothic w-full bg-white p-8 text-center max-w-lg shadow-lg rounded-2xl">
-					{/* loginheading */}
-					<div className="text-4xl mb-6 text-center font-semibold">
+					<div className="text-4xl mb-6 font-semibold">
 						{isLogin ? "Log In" : "Sign Up"}
 					</div>
 
-					{/* form */}
 					<form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-						<div className="flex items-center gap-4">
-							<label className="w-30 text-left text-lg font-medium">
-								UserName :
-							</label>
-							<input
-								className="flex-1 border px-3 py-2 rounded-lg focus:outline-none"
-								placeholder="username.."
-								{...register("username", { required: true, maxLength: 20 })}
-							/>
-						</div>
+						<Input
+							control={control}
+							name="username"
+							label="UserName"
+							placeholder="Enter username"
+							rules={{ required: true, maxLength: 20 }}
+						/>
 
-						<div className="flex items-center gap-4">
-							<label className="w-30 text-left text-lg font-medium">
-								Password :
-							</label>
-							<input
-								className="flex-1 border px-3 py-2 rounded-lg focus:outline-none"
-								placeholder="password.."
-								type="password"
-								{...register("password", { required: true, maxLength: 20 })}
-							/>
-						</div>
+						<Input
+							control={control}
+							name="password"
+							label="Password"
+							type="password"
+							placeholder="Enter password"
+							rules={{ required: true, maxLength: 20 }}
+						/>
 
 						{!isLogin && (
-							<div className="flex items-center gap-4">
-								<label className="w-30 text-left text-lg font-medium">
-									Confirm Password :
-								</label>
-								<input
-									className="flex-1 border px-3 py-2 rounded-lg focus:outline-none"
-									placeholder="confirm password.."
-									type="password"
-									{...register("confirm_password", {
-										required: true,
-										maxLength: 20,
-									})}
-								/>
-							</div>
+							<Input
+								control={control}
+								name="confirm_password"
+								label="Confirm Password"
+								type="password"
+								placeholder="Re-enter password"
+								rules={{ required: true, maxLength: 20 }}
+							/>
 						)}
 
 						<input

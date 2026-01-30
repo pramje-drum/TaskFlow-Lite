@@ -1,6 +1,14 @@
-const AddTask = ({ newTask, setNewTask, currCol, setCurrCol, addNewTask }) => {
+const AddTask = ({
+	newTask,
+	setNewTask,
+	currCol,
+	dueDate,
+	setCurrCol,
+	addNewTask,
+	setDueDate,
+}) => {
 	return (
-		<div className="mb-8 flex w-full max-w-lg border border-black rounded-xl overflow-hidden">
+		<div className="mb-8 flex w-full max-w-150 border border-black rounded-xl overflow-hidden">
 			<input
 				type="text"
 				value={newTask}
@@ -13,12 +21,19 @@ const AddTask = ({ newTask, setNewTask, currCol, setCurrCol, addNewTask }) => {
 			<select
 				value={currCol}
 				onChange={(e) => setCurrCol(e.target.value)}
-				className="px-4 py-3 border-l border-black outline-none"
+				className="px-2 py-3 border-l border-black outline-none"
 			>
 				<option value="todo">To Do</option>
 				<option value="inProgress">In Progress</option>
 				<option value="completed">Completed</option>
 			</select>
+
+			<input
+				value={dueDate}
+				type="date"
+				className="px-3 border-l border-black"
+				onChange={(e) => setDueDate(e.target.value)}
+			/>
 
 			<button
 				onClick={addNewTask}

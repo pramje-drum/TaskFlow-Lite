@@ -5,6 +5,7 @@ const Column = ({
 	columnName,
 	tasks,
 	handleRemoveTask,
+	handleEditTask,
 	handleDragStart,
 	handleDragOver,
 	handleDrop,
@@ -15,7 +16,7 @@ const Column = ({
 			onDragOver={handleDragOver}
 			onDrop={(e) => handleDrop(e, columnId)}
 		>
-			<div className="p-4 bg-black text-white flex justify-between font-bold">
+			<div className="p-4 bg-black text-white flex justify-between font-bold rounded-md">
 				<span>{columnName}</span>
 				<span>{tasks.length}</span>
 			</div>
@@ -30,6 +31,7 @@ const Column = ({
 							task={task}
 							columnId={columnId}
 							handleRemoveTask={handleRemoveTask}
+							handleEditTask={handleEditTask}
 							handleDragStart={handleDragStart}
 						/>
 					))
