@@ -1,12 +1,10 @@
-import Dashboard from "./assets/components/DashBoard/Dashboard";
-import LoginArea from "./assets/components/LoginForm/LoginArea";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ProtectedRoutes from "./assets/components/ProtectedRoutes/ProtectedRoutes";
 import { useState } from "react";
-import Header from "./assets/components/Header";
 import Temp from "./services/useAPI";
 import DashboardNEW from "./new_compo/DashBoard/DashBoardNEW";
-
+import LoginArea from "./new_compo/LoginFolder/LoginArea";
+import ProtectedRoutes from "./new_compo/ProtectedRoutes/ProtectedRoutes";
+import Header from "./new_compo/Header";
 
 const App = () => {
 	const [auth, setAuth] = useState(localStorage.getItem("token"));
