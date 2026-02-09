@@ -23,7 +23,10 @@ const Column = ({
 
 			<div className="p-4 min-h-75">
 				{tasks.length === 0 ? (
-					<p className="text-gray-500">Drag tasks here</p>
+					<div className="flex flex-col text-center mt-24">
+						<p className="text-gray-500 ">No Tasks Here!</p>
+						<p className="text-gray-500">Add New Tasks..</p>
+					</div>
 				) : (
 					tasks.map((task) => (
 						<TaskCard

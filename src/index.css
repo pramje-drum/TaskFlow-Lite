@@ -4,4 +4,10 @@
 @theme {
   --font-ChewyFamily: "Chewy", sans-serif; 
   --font-Gothic: "Special Gothic Condensed One", sans-serif; 
+  --color-bg_color: #200B33;
+  --color-input_bg: #2C0E48;
+  --color-focus_color: #E4A02D;
+}
+* {
+  box-sizing: border-box;
 }

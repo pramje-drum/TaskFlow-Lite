@@ -1,39 +1,43 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { useState } from "react";
-import Temp from "./services/useAPI";
-import DashboardNEW from "./new_compo/DashBoard/DashBoardNEW";
-import LoginArea from "./new_compo/LoginFolder/LoginArea";
+import DashboardNEW from "./new_compo/DashBoard/components/DashBoardNEW";
 import ProtectedRoutes from "./new_compo/ProtectedRoutes/ProtectedRoutes";
-import Header from "./new_compo/Header";
+
+import UserProfile from "./new_compo/UserProfile/components/Index";
+import { AuthProvider } from "./context/AuthContext";
+import LoginSignup from "./new_compo/LoginComponent/component/Index";
+import Header from "./new_compo/Header/Header";
+
+const router = createBrowserRouter([
+	{
+		path: "/",
+		element: <LoginSignup />,
+	},
+	{
+		element: <ProtectedRoutes />,
+		children: [
+			{
+				path: "/dashboard",
+				element: (
+					<>
+						<Header />
+						<DashboardNEW />
+					</>
+				),
+			},
+			{
+				path: "/userProfile",
+				element: <UserProfile />,
+			},
+		],
+	},
+]);
 
 const App = () => {
-	const [auth, setAuth] = useState(localStorage.getItem("token"));
-	const router = createBrowserRouter([
-		{
-			path: "/",
-			element: (
-				<div>
-					<Header auth={auth} setAuth={setAuth} />
-					<LoginArea setAuth={setAuth} />{" "}
-				</div>
-			),
-		},
-		{
-			element: <ProtectedRoutes auth={auth} />,
-			children: [
-				{
-					path: "/dashboard",
-					element: (
-						<div>
-							<Header auth={auth} setAuth={setAuth} />
-							<DashboardNEW />
-						</div>
-					),
-				},
-			],
-		},
-	]);
-	return <RouterProvider router={router} />;
+	return (
+		<AuthProvider>
+			<RouterProvider router={router} />
+		</AuthProvider>
+	);
 };
 
 export default App;

@@ -1,53 +1,138 @@
 {
+  "users": [
+    {
+      "id": "1",
+      "fullname": "John Doe",
+      "username": "johndoe_99",
+      "email": "john.doe@example.com",
+      "phone": "+1-555-0123",
+      "gender": "Male",
+      "dob": "1995-06-15",
+      "address": "123 Tech Lane, Silicon Valley",
+      "pincode": "94025",
+      "state": "California",
+      "password": "123456"
+    },
+    {
+      "id": "1770576965499",
+      "fullname": "qwerty",
+      "username": "ser",
+      "email": "ser@gmail.com",
+      "phone": "7812456827",
+      "gender": "Female",
+      "dob": "2026-02-25",
+      "address": "cef",
+      "pincode": "984978",
+      "state": "Goa",
+      "password": "qwerty"
+    },
+    {
+      "id": "1770580530774",
+      "fullname": "",
+      "username": "piyush",
+      "email": "piyush@gmail.com",
+      "phone": "9876543212",
+      "gender": "",
+      "dob": "",
+      "address": "",
+      "pincode": "",
+      "state": "",
+      "password": "qwerty"
+    },
+    {
+      "id": "1770613730554",
+      "fullname": "",
+      "username": "maksood_bhai",
+      "email": "piyush+1@gmail.com",
+      "phone": "7896",
+      "gender": "",
+      "dob": "",
+      "address": "",
+      "pincode": "",
+      "state": "",
+      "password": "qwerty"
+    },
+    {
+      "id": "1770621940095",
+      "fullname": "",
+      "username": "aashiq",
+      "email": "poiyu@rmal.com",
+      "phone": "1254789648",
+      "gender": "",
+      "dob": "",
+      "address": "",
+      "pincode": "",
+      "state": "",
+      "password": "qwerty"
+    },
+    {
+      "id": "1770622067185",
+      "fullname": "",
+      "username": "Gear",
+      "email": "pure@gmail.com",
+      "phone": "7894561245",
+      "gender": "",
+      "dob": "",
+      "address": "",
+      "pincode": "",
+      "state": "",
+      "password": "qwerty"
+    },
+    {
+      "id": "1770622097504",
+      "fullname": "",
+      "username": "ckjbcj",
+      "email": "chjbbak@gmail.com",
+      "phone": "7812164614",
+      "gender": "",
+      "dob": "",
+      "address": "",
+      "pincode": "",
+      "state": "",
+      "password": "qwerty"
+    }
+  ],
   "tasks": [
     {
-      "id": "1769750560764",
+      "id": "1770582207891",
+      "content": "Yoo kaise",
+      "status": "completed",
+      "priority": "Medium",
+      "date": "2026-02-10",
+      "userId": "1770576965499"
+    },
+    {
+      "id": "1770582908843",
+      "content": "wcuwcbk",
+      "status": "todo",
+      "priority": "Medium",
+      "date": "2026-02-25"
+    },
+    {
+      "id": "1770583091688",
+      "content": "uipcpje",
+      "status": "completed",
+      "priority": "Medium",
+      "date": "2026-02-02"
+    },
+    {
+      "id": "1770616835234",
       "content": "Meet Client",
       "status": "todo",
       "priority": "Medium",
       "date": "2026-01-31"
     },
     {
-      "id": "1769750583865",
-      "content": "sk gkayufgiu gvouga ",
+      "id": "1770630052124",
+      "content": "hello how are you",
       "status": "inProgress",
-      "priority": "Medium",
-      "date": "2026-03-11"
+      "date": "2026-02-03"
     },
     {
-      "id": "1769750594620",
-      "content": " awfefw af awefaw ",
+      "id": "1770630199221",
+      "content": "yfcejve",
       "status": "completed",
-      "priority": "Medium",
-      "date": "2025-08-20"
-    },
-    {
-      "id": "1769750612345",
-      "content": "Finalize Q1 Project Proposal",
-      "status": "todo",
-      "priority": "High",
       "date": "2026-02-05"
-    },
-    {
-      "id": "1769750625678",
-      "content": "Weekly Team Sync",
-      "status": "inProgress",
-      "priority": "Low",
-      "date": "2026-02-02"
-    },
-    {
-      "id": "1769750638910",
-      "content": "Update Documentation Assets",
-      "status": "completed",
-      "priority": "Medium",
-      "date": "2026-01-28"
-    },
-    {
-      "id": "1769750641122",
-      "content": "Review Pull Requests",
-      "status": "todo",
-      "priority": "High",
-      "date": "2026-01-31"
     }
   ]
 }

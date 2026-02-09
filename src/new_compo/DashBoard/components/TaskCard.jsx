@@ -12,7 +12,6 @@ const TaskCard = ({
 
 	return (
 		<>
-			{/* TASK CARD */}
 			<div
 				draggable
 				onDragStart={() => handleDragStart(columnId, task)}
@@ -51,8 +50,10 @@ const TaskCard = ({
 			</div>
 			<Modal
 				isOpen={modalOpen}
-				onRequestClose={() => setModalOpen(false)}
-				className="bg-white text-black w-[420px] p-6 rounded-xl outline-none"
+				onRequestClose={() => {
+					setModalOpen(false);
+				}}
+				className="bg-white text-black w-105 p-6 rounded-xl outline-none"
 				overlayClassName="fixed inset-0 bg-black/70 flex items-center justify-center"
 			>
 				<div className="space-y-4">
@@ -68,7 +69,9 @@ const TaskCard = ({
 
 					<div className="flex justify-end gap-3 pt-4">
 						<button
-							onClick={() => setModalOpen(false)}
+							onClick={() => {
+								setModalOpen(false);
+							}}
 							className="px-4 py-2 border border-black rounded-lg"
 						>
 							Close

@@ -1,17 +1,19 @@
+
 const AddTask = ({
-	newTask,
+	newTask = "",
 	setNewTask,
-	currCol,
-	dueDate,
+	currCol = "to-do",
+	dueDate = null,
 	setCurrCol,
 	addNewTask,
-	setDueDate,
+	setDueDate = "",
+	editingTask = false,
 }) => {
 	return (
 		<div className="mb-8 flex w-full max-w-150 border border-black rounded-xl overflow-hidden">
 			<input
 				type="text"
-				value={newTask}
+				value={editingTask ? "" : newTask}
 				onChange={(e) => setNewTask(e.target.value)}
 				placeholder="Add a new task..."
 				className="grow px-4 py-3 outline-none"
@@ -19,7 +21,7 @@ const AddTask = ({
 			/>
 
 			<select
-				value={currCol}
+				value={editingTask ? "" : currCol}
 				onChange={(e) => setCurrCol(e.target.value)}
 				className="px-2 py-3 border-l border-black outline-none"
 			>
@@ -29,8 +31,9 @@ const AddTask = ({
 			</select>
 
 			<input
-				value={dueDate}
+				value={editingTask ? "" : dueDate}
 				type="date"
+				min="2026-02-09" max="2050-04-30"
 				className="px-3 border-l border-black"
 				onChange={(e) => setDueDate(e.target.value)}
 			/>
@@ -39,7 +42,7 @@ const AddTask = ({
 				onClick={addNewTask}
 				className="px-6 py-3 border-l border-black bg-black text-white hover:bg-white hover:text-black transition"
 			>
-				Add
+				{editingTask ? "Edit" : "Add"}
 			</button>
 		</div>
 	);
