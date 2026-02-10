@@ -83,8 +83,9 @@ const useAuthForm = () => {
 
 			await addUser(newUser);
 
+			login("dummy-token-123", newUser);
 			toast("Account created successfully");
-			setIsLogin(true);
+
 			navigate("/dashboard");
 			reset();
 			return;

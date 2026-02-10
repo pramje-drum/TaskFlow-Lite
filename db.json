@@ -90,6 +90,32 @@
       "pincode": "",
       "state": "",
       "password": "qwerty"
+    },
+    {
+      "id": "1770644012234",
+      "fullname": "",
+      "username": "maksood_bhaiii",
+      "email": "poiyuu@rmal.com",
+      "phone": "7881324263",
+      "gender": "",
+      "dob": "",
+      "address": "",
+      "pincode": "",
+      "state": "",
+      "password": "qwerty"
+    },
+    {
+      "id": 1770694227948,
+      "fullname": "",
+      "username": "Your",
+      "email": "your@gmail.com",
+      "phone": "1234567891",
+      "gender": "",
+      "dob": "",
+      "address": "",
+      "pincode": "",
+      "state": "",
+      "password": "234567"
     }
   ],
   "tasks": [
@@ -111,21 +137,21 @@
     {
       "id": "1770583091688",
       "content": "uipcpje",
-      "status": "completed",
+      "status": "todo",
       "priority": "Medium",
       "date": "2026-02-02"
     },
     {
       "id": "1770616835234",
       "content": "Meet Client",
-      "status": "todo",
+      "status": "inProgress",
       "priority": "Medium",
       "date": "2026-01-31"
     },
     {
       "id": "1770630052124",
       "content": "hello how are you",
-      "status": "inProgress",
+      "status": "todo",
       "date": "2026-02-03"
     },
     {
