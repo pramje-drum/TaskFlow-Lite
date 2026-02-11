@@ -4,7 +4,7 @@ const InputRender = ({
 	field,
 	error,
 	label,
-	type = "text",
+	type,
 	placeholder = "",
 	options = [],
 	disabled = false,

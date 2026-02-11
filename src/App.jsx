@@ -6,6 +6,8 @@ import UserProfile from "./new_compo/UserProfile/components/Index";
 import { AuthProvider } from "./context/AuthContext";
 import LoginSignup from "./new_compo/LoginComponent/component/Index";
 import Header from "./new_compo/Header/Header";
+import { ApiProvider } from "@reduxjs/toolkit/query/react";
+import { api } from "./Store/apiSlice";
 
 const router = createBrowserRouter([
 	{
@@ -34,9 +36,11 @@ const router = createBrowserRouter([
 
 const App = () => {
 	return (
-		<AuthProvider>
-			<RouterProvider router={router} />
-		</AuthProvider>
+		<ApiProvider api={api}>
+			<AuthProvider>
+				<RouterProvider router={router} />
+			</AuthProvider>
+		</ApiProvider>
 	);
 };
 
