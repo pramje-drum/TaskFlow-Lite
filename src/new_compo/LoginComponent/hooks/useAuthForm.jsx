@@ -32,7 +32,7 @@ const useAuthForm = () => {
 			const res = await getUser();
 			const users = Array.isArray(res.data) ? res.data : [];
 
-			// ================= LOGIN =================
+			// LOGIN
 			if (isLogin) {
 				const user = users.find(
 					(u) => u.username === data.username && u.password === data.password,

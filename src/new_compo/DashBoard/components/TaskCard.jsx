@@ -16,13 +16,25 @@ const TaskCard = ({
 				draggable
 				onDragStart={() => handleDragStart(columnId, task)}
 				onClick={() => setModalOpen(true)}
-				className="p-3 mb-3 border border-black rounded-lg cursor-move
-					flex justify-between items-center
-					bg-white hover:bg-black hover:text-white transition group"
+				className="p-3 mb-3 border-task_border_color opacity-59  border-3 rounded-xl cursor-move
+					flex flex-col bg-task-bg
+					"
 			>
-				<span className="truncate">{task.content}</span>
+				{/* <span className="truncate">{task.content}</span> */}
 
-				<div className="flex gap-2 opacity-0 group-hover:opacity-100 transition">
+				<div className="space-y-4">
+					<h2 className="text-xl font-bold border-b pb-2">{task.content}</h2>
+
+					<p>
+						<span className="font-semibold">Status:</span> {task.status}
+					</p>
+
+					<p>
+						<span className="font-semibold">Due Date:</span> {task.date}
+					</p>
+				</div>
+
+				<div className="flex  mt-2 gap-2 justify-end ">
 					<button
 						onClick={(e) => {
 							e.stopPropagation();
@@ -30,7 +42,7 @@ const TaskCard = ({
 							setModalOpen(false);
 						}}
 						title="Edit Task"
-						className="px-2 py-1 rounded-md border border-black
+						className="px-2 py-1 rounded-md border border-black cursor-pointer
 							bg-white text-black hover:bg-yellow-400 transition"
 					>
 						✏️
@@ -41,14 +53,14 @@ const TaskCard = ({
 							handleRemoveTask(task.id);
 						}}
 						title="Delete Task"
-						className="px-2 py-1 rounded-md border border-black
+						className="px-2 py-1 rounded-md border border-black cursor-pointer
 							bg-white text-black hover:bg-red-500 hover:text-white transition"
 					>
 						✕
 					</button>
 				</div>
 			</div>
-			<Modal
+			{/* <Modal
 				isOpen={modalOpen}
 				onRequestClose={() => {
 					setModalOpen(false);
@@ -78,7 +90,7 @@ const TaskCard = ({
 						</button>
 					</div>
 				</div>
-			</Modal>
+			</Modal> */}
 		</>
 	);
 };

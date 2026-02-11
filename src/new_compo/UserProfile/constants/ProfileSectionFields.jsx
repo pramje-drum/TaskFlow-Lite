@@ -29,7 +29,7 @@ export const ProfileSectionFields = [
 		label: "Phone Number",
 		placeholder: "Enter phone number",
 		rules: {
-			required: "Phone number is required",
+			required: "Phone number should be 10 Digits",
 			pattern: { value: /^[0-9]{10}$/, message: "Invalid phone number" },
 		},
 	},
@@ -61,7 +61,7 @@ export const ProfileSectionFields = [
 		label: "Pincode",
 		placeholder: "Enter 6-digit pincode",
 		rules: {
-			required: "Pincode is required",
+			required: "Pincode should be 6 Digits",
 			minLength: { value: 6, message: "Pincode must be 6 digits" },
 			maxLength: { value: 6, message: "Pincode must be 6 digits" },
 		},

@@ -10,7 +10,7 @@ const AddTask = ({
 	editingTask = false,
 }) => {
 	return (
-		<div className="mb-8 flex w-full max-w-150 border border-black rounded-xl overflow-hidden">
+		<div className="mb-8 flex w-full max-w-150 border 	border-white rounded-xl overflow-hidden">
 			<input
 				type="text"
 				value={editingTask ? "" : newTask}
@@ -23,11 +23,11 @@ const AddTask = ({
 			<select
 				value={editingTask ? "" : currCol}
 				onChange={(e) => setCurrCol(e.target.value)}
-				className="px-2 py-3 border-l border-black outline-none"
+				className="px-2 py-3 border-l border-black  outline-none"
 			>
-				<option value="todo">To Do</option>
-				<option value="inProgress">In Progress</option>
-				<option value="completed">Completed</option>
+				<option value="todo" className="bg-task_border_color">To Do</option>
+				<option value="inProgress" className="bg-task_border_color">In Progress</option>
+				<option value="completed" className="bg-task_border_color">Completed</option>
 			</select>
 
 			<input
@@ -40,7 +40,7 @@ const AddTask = ({
 
 			<button
 				onClick={addNewTask}
-				className="px-6 py-3 border-l border-black bg-black text-white hover:bg-white hover:text-black transition"
+				className="px-6 py-3 border-l border-black  text-white hover:bg-task_border_color cursor-pointer transition"
 			>
 				{editingTask ? "Edit" : "Add"}
 			</button>

@@ -20,13 +20,13 @@ const Header = () => {
 
 	return (
 		<>
-			<div className="navbar bg-base-100 shadow-lg flex top-0 z-50 justify-center items-center p-6 font-ChewyFamily relative">
+			<div className="navbar  bg-task-bg text-purple-300 shadow-lg flex top-0 z-50 justify-center items-center p-6 font-ChewyFamily relative">
 				<div>
 					<a className="text-5xl cursor-pointer">TaskFlow-Lite</a>
 				</div>
 
 				{isAuthenticated && (
-					<div className="absolute right-6 flex gap-6 items-center">
+					<div className="absolute right-6 flex gap-6 items-center cursor-pointer">
 						<button
 							onClick={handleProfile}
 							className="text-2xl hover:text-gray-600 transition"
@@ -36,7 +36,7 @@ const Header = () => {
 
 						<button
 							onClick={() => setShowLogoutModal(true)}
-							className="text-2xl hover:text-gray-600 transition"
+							className="text-2xl hover:text-gray-600 cursor-pointer transition"
 						>
 							Log-Out
 						</button>
@@ -45,26 +45,27 @@ const Header = () => {
 			</div>
 
 			{showLogoutModal && (
-				<div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-					<div className="bg-white rounded-xl p-6 w-[350px] text-center">
-						<h2 className="text-2xl font-semibold mb-4">
-							Confirm Logout
+				<div  className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
+					<div className="bg-white/80 text-gray-800 rounded-2xl p-8 w-[380px] shadow-2xl border border-white/30 animate-scaleIn">
+						<h2 className="text-2xl font-bold mb-2 text-center">
+							Logout Confirmation
 						</h2>
-						<p className="mb-6">
+
+						<p className="text-center text-gray-600 mb-6">
 							Are you sure you want to logout?
 						</p>
 
-						<div className="flex justify-center gap-4">
+						<div className="flex gap-4">
 							<button
 								onClick={() => setShowLogoutModal(false)}
-								className="px-5 py-2 rounded-lg bg-gray-200 cursor-pointer"
+								className="w-full py-2 rounded-xl border border-gray-300 hover:bg-gray-100 transition"
 							>
 								Cancel
 							</button>
 
 							<button
 								onClick={handleConfirmLogout}
-								className="px-5 py-2 rounded-lg bg-red-500 text-white cursor-pointer"
+								className="w-full py-2 rounded-xl border border-gray-300 hover:bg-gray-100 transition"
 							>
 								Logout
 							</button>

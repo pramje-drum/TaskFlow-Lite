@@ -37,10 +37,13 @@ const useDashboard = () => {
 		// };
 
 		if (editingTask) {
-			editTasks(editingTask.id, {
-				content: newTask,
-				status: currCol,
-				date: dueDate,
+			editTasks({
+				id: editingTask?.id,
+				task: {
+					content: newTask,
+					status: currCol,
+					date: dueDate,
+				},
 			});
 		} else {
 			createTask({
@@ -60,6 +63,7 @@ const useDashboard = () => {
 		setDueDate(task.date);
 		setIsOpen(true);
 	};
+	// console.log(editingTask);
 
 	const handleDrop = (e, targetColumnId) => {
 		e.preventDefault();
@@ -67,8 +71,16 @@ const useDashboard = () => {
 
 		const { columnId: sourceColumnId, task } = draggedItem;
 		if (sourceColumnId === targetColumnId) return;
+		console.log(task.id, "taskid", task);
 
-		editTasks(task.id, { status: targetColumnId });
+		editTasks({
+			id: task?.id,
+			task: {
+				content: task?.content,
+				status: targetColumnId,
+				date: task?.date,
+			},
+		});
 		resetDrag();
 	};
 

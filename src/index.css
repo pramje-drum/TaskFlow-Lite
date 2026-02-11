@@ -1,13 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&display=swap");
 @import "tailwindcss";
 @theme {
-  --font-ChewyFamily: "Chewy", sans-serif; 
-  --font-Gothic: "Special Gothic Condensed One", sans-serif; 
-  --color-bg_color: #200B33;
-  --color-input_bg: #2C0E48;
-  --color-focus_color: #E4A02D;
+	--font-ChewyFamily: "Chewy", sans-serif;
+	--font-Gothic: "Special Gothic Condensed One", sans-serif;
+	--color-bg_color: #200b33;
+	--color-input_bg: #2c0e48;
+	--color-focus_color: #e4a02d;
+	--color-task_container_color: #371650;
+	--color-task_container_title_bg: #430357;
+	--color-task_border_color: #73167596;
+	--background-image-task-bg: radial-gradient(
+		169.23% 169.23% at 41.47% -28.17%,
+		#461446 0%,
+		#2c063f 55.66%,
+		#a419a7 100%
+	);
 }
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+}
+@layer utilities {
+	.border-task_continer {
+		border: 3px solid transparent;
+		background:
+			linear-gradient(#2c0e48, #2c0e48) padding-box,
+			linear-gradient(to right, #f2c21b, #c16b08) border-box;
+	}
+}
+
+
+
+
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+	width: 8px; /* Scrollbar width */
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1; /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+	background: #888; /* Thumb color */
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555; /* Thumb hover color */
 }

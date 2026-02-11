@@ -12,16 +12,17 @@ const Column = ({
 }) => {
 	return (
 		<div
-			className="w-80 shrink-0 border border-black rounded-lg shadow-md"
+			className="w-100  bg-task_container_color py-10 px-7 text-white rounded-xl shadow-xl"
 			onDragOver={handleDragOver}
 			onDrop={(e) => handleDrop(e, columnId)}
 		>
-			<div className="p-4 bg-black text-white flex justify-between font-bold rounded-md">
+			<div className="p-4 bg-task_container_title_bg opacity-80 uppercase  border-task_continer border-2 text-white flex justify-center font-bold rounded-lg">
 				<span>{columnName}</span>
+				<span>-</span>	
 				<span>{tasks.length}</span>
 			</div>
 
-			<div className="p-4 min-h-75">
+			<div className="p-4 min-h-75 max-h-screen overflow-auto">
 				{tasks.length === 0 ? (
 					<div className="flex flex-col text-center mt-24">
 						<p className="text-gray-500 ">No Tasks Here!</p>
