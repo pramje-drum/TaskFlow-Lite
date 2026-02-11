@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import Modal from "react-modal";
 
 const TaskCard = ({
@@ -8,14 +8,14 @@ const TaskCard = ({
 	handleDragStart,
 	handleEditTask,
 }) => {
-	const [modalOpen, setModalOpen] = useState(false);
+	
 
 	return (
 		<>
 			<div
 				draggable
 				onDragStart={() => handleDragStart(columnId, task)}
-				onClick={() => setModalOpen(true)}
+				// onClick={() => setModalOpen(true)}
 				className="p-3 mb-3 border-task_border_color opacity-59  border-3 rounded-xl cursor-move
 					flex flex-col bg-task-bg
 					"
@@ -39,7 +39,7 @@ const TaskCard = ({
 						onClick={(e) => {
 							e.stopPropagation();
 							handleEditTask(task);
-							setModalOpen(false);
+							// setModalOpen(false);
 						}}
 						title="Edit Task"
 						className="px-2 py-1 rounded-md border border-black cursor-pointer

@@ -105,7 +105,7 @@
       "password": "qwerty"
     },
     {
-      "id": "1770694227948",
+      "id": 1770694227948,
       "fullname": "",
       "username": "Your",
       "email": "your@gmail.com",
@@ -120,58 +120,28 @@
   ],
   "tasks": [
     {
-      "content": "Finish the project documentation",
+      "content": "Yoo kaise",
+      "status": "todo",
+      "date": "2026-02-10",
+      "id": "1770582207891"
+    },
+    {
+      "content": "wcuwcbk",
       "status": "inProgress",
-      "date": "2026-02-09",
+      "date": "2026-02-25",
       "id": "1770582908843"
     },
     {
-      "id": "1770630052124",
-      "content": "Evening walk and exercise",
-      "status": "pending",
-      "date": "2026-02-10"
-    },
-    {
-      "id": "1770704330096",
-      "content": "Buy groceries for the week",
-      "status": "pending",
-      "date": "2026-02-11"
-    },
-    {
-      "content": "kaise ho bahi saab",
-      "status": "inProgress",
-      "date": "2026-02-11",
-      "id": "1770725713900"
-    },
-    {
-      "id": "1770725800000",
-      "content": "Call home and check-in",
-      "status": "pending",
-      "date": "2026-02-12"
-    },
-    {
-      "id": "1770725950000",
-      "content": "Review code pull requests",
-      "status": "pending",
-      "date": "2026-02-12"
-    },
-    {
-      "content": "yooo kaise hooo",
+      "content": "Meet Client",
       "status": "completed",
-      "date": "2026-02-18",
-      "id": "1770728400033"
+      "date": "2026-01-31",
+      "id": "1770616835234"
     },
     {
-      "content": "yo bro jishbcjoce",
+      "content": "yfcejve",
       "status": "todo",
-      "date": "2026-02-27",
-      "id": "1770729350345"
-    },
-    {
-      "content": "complete this",
-      "status": "completed",
-      "date": "2026-03-03",
-      "id": "1770729369184"
+      "date": "2026-02-05",
+      "id": "1770630199221"
     }
   ]
 }

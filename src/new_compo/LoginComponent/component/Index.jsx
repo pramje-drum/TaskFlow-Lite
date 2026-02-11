@@ -26,7 +26,7 @@ const LoginSignup = ({ setAuth }) => {
 
 	return (
 		<>
-			<div className="bg-bg_color h-screen text-purple-200">
+			<div className="bg-bg_color h-screen  text-purple-200">
 				<HeaderLogin onLogin={openLogin} onSignup={openSignup} />
 
 				<div className="text-8xl  flex justify-center items-center mt-40 font-ChewyFamily font-thin underline">
@@ -39,7 +39,7 @@ const LoginSignup = ({ setAuth }) => {
 					className="outline-none "
 					overlayClassName="fixed inset-0 bg-black/70 flex items-center justify-center"
 				>
-					<div className="h-[70vh] w-[70vw] flex overflow-auto bg-bg_color text-white rounded-xl ">
+					<div className="h-[70vh] w-[70vw] flex  bg-bg_color text-white rounded-xl ">
 						{/* LEFT IMAGE */}
 						<div className="w-[45%] h-full">
 							<img
@@ -50,9 +50,9 @@ const LoginSignup = ({ setAuth }) => {
 						</div>
 
 						{/* RIGHT FORM */}
-						<div className="w-[55%] h-full flex  items-center justify-center px-12 py-10">
+						<div className="w-[55%] h-full flex overflow-auto items-center justify-center px-12 py-10">
 							<div className="w-full max-w-md">
-								<h1 className="text-2xl font-semibold text-center mb-2">
+								<h1 className="text-2xl font-semibold text-center mt-4 mb-2">
 									{isLogin ? "Login" : "Sign Up"}
 								</h1>
 

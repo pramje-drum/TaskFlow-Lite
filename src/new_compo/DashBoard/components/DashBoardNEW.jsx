@@ -36,7 +36,7 @@ const DashboardNEW = () => {
 		resetForm,
 	} = useDashboard();
 
-	console.log(editingTask, "temp");
+	// console.log(editingTask, "temp");
 	if (loading) return <p>Loading Tasks...</p>;
 	if (error) return <p>Something went wrong...</p>;
 

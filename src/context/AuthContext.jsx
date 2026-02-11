@@ -31,11 +31,10 @@ export const AuthProvider = ({ children }) => {
 
 			if (updatedData.id) {
 				await updateDBUser(updatedData.id, updatedData);
-				console.log("User updated in DB");
+				// console.log("User updated in DB");
 			}
 		} catch (err) {
 			console.error(err);
-			// alert("Failed to update user in DB");
 		}
 	};
 
