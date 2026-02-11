@@ -1,5 +1,5 @@
 // import { useState } from "react";
-import Modal from "react-modal";
+// import Modal from "react-modal";
 
 const TaskCard = ({
 	task,
@@ -7,9 +7,9 @@ const TaskCard = ({
 	handleRemoveTask,
 	handleDragStart,
 	handleEditTask,
+	selectedTask,
+	handleSelected,
 }) => {
-	
-
 	return (
 		<>
 			<div
@@ -23,8 +23,16 @@ const TaskCard = ({
 				{/* <span className="truncate">{task.content}</span> */}
 
 				<div className="space-y-4">
-					<h2 className="text-xl font-bold border-b pb-2">{task.content}</h2>
-
+					<div className="flex justify-between border-b">
+						<h2 className="text-xl font-bold  pb-2">{task.content}</h2>
+						<input
+							type="checkbox"
+							checked={selectedTask.some((item) => item.id === task?.id)}
+							onChange={() => {
+								handleSelected(task);
+							}}
+						/>
+					</div>
 					<p>
 						<span className="font-semibold">Status:</span> {task.status}
 					</p>

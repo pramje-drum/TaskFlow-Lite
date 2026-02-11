@@ -33,6 +33,11 @@ const DashboardNEW = () => {
 		handleDragOver,
 		handleDrop,
 
+		selectedTask,
+		handleSelected,
+		handleSelectedDelete,
+		handleSelectedStatusChange,
+
 		resetForm,
 	} = useDashboard();
 
@@ -65,7 +70,9 @@ const DashboardNEW = () => {
 					<h2 className="text-xl font-bold">
 						{editingTask ? "Edit Task" : "Add New Task"}
 					</h2>
-					<button className="cursor-pointer" onClick={() => setIsOpen(false)}>✕</button>
+					<button className="cursor-pointer" onClick={() => setIsOpen(false)}>
+						✕
+					</button>
 				</div>
 
 				<div className="px-6 py-5">
@@ -78,7 +85,7 @@ const DashboardNEW = () => {
 						setDueDate={setDueDate}
 						addNewTask={addNewTask}
 						// isEdit={!!editingTask}
-						editingTask = {editingTask}
+						editingTask={editingTask}
 					/>
 				</div>
 			</Modal>
@@ -102,6 +109,10 @@ const DashboardNEW = () => {
 						handleDragOver={handleDragOver}
 						handleDrop={handleDrop}
 						setEditingTask={setEditingTask}
+						selectedTask={selectedTask}
+						handleSelected={handleSelected}
+						handleSelectedDelete={handleSelectedDelete}
+						handleSelectedStatusChange={handleSelectedStatusChange}
 					/>
 				))}
 			</div>

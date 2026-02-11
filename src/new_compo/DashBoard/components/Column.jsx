@@ -9,6 +9,10 @@ const Column = ({
 	handleDragStart,
 	handleDragOver,
 	handleDrop,
+	selectedTask,
+	handleSelected,
+	handleSelectedDelete,
+	handleSelectedStatusChange,
 }) => {
 	return (
 		<div
@@ -18,9 +22,38 @@ const Column = ({
 		>
 			<div className="p-4 bg-task_container_title_bg opacity-80 uppercase  border-task_continer border-2 text-white flex justify-center font-bold rounded-lg">
 				<span>{columnName}</span>
-				<span>-</span>	
+				<span>-</span>
 				<span>{tasks.length}</span>
 			</div>
+
+			{selectedTask.length !== 0 && (
+				<div className="flex justify-between items-center mt-3">
+					<button
+						onClick={() => handleSelectedDelete()}
+						className="bg-red-500 hover:bg-red-600 px-4 py-1 rounded-md text-sm"
+					>
+						Delete Selected
+					</button>
+
+					<select
+						onChange={(e) => handleSelectedStatusChange(e.target.value)}
+						className="border p-2 rounded-md text-yellow-200"
+					>
+						<option value="" className="text-black">
+							{" "}
+						</option>
+						<option value="todo" className="text-black">
+							To-Do
+						</option>
+						<option value="inProgress" className="text-black">
+							In Progress
+						</option>
+						<option value="completed" className="text-black">
+							Completed
+						</option>
+					</select>
+				</div>
+			)}
 
 			<div className="p-4 min-h-75 max-h-screen overflow-auto">
 				{tasks.length === 0 ? (
@@ -37,6 +70,8 @@ const Column = ({
 							handleRemoveTask={handleRemoveTask}
 							handleEditTask={handleEditTask}
 							handleDragStart={handleDragStart}
+							selectedTask={selectedTask}
+							handleSelected={handleSelected}
 						/>
 					))
 				)}

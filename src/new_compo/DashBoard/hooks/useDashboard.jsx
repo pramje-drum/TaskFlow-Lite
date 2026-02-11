@@ -17,6 +17,7 @@ const useDashboard = () => {
 	const [searchVal, setSearchVal] = useState("");
 	const [isOpen, setIsOpen] = useState(false);
 	const [editingTask, setEditingTask] = useState(null);
+	const [selectedTask, setSelectedTask] = useState([]);
 
 	const { draggedItem, handleDragStart, handleDragOver, resetDrag } =
 		useDragDrop();
@@ -27,6 +28,46 @@ const useDashboard = () => {
 		setDueDate("");
 		setEditingTask(null);
 		setIsOpen(false);
+	};
+
+	const handleSelected = (task) => {
+		setSelectedTask((prev) => {
+			const alreadySelected = prev.some((item) => item.id === task.id);
+
+				console.log(prev)
+			if (alreadySelected) {
+				return prev.filter((item) => item.id !== task.id);
+			} else {
+				return [...prev, task];
+			}
+		});
+		console.log(selectedTask, "tasks")
+	};
+
+	const handleSelectedStatusChange = (newStatus) => {
+		if (!newStatus) return;
+
+		selectedTask
+			.filter((task) => task.status !== newStatus)
+			.forEach((task) => {
+				editTasks({
+					id: task.id,
+					task: {
+						...task,
+						status: newStatus,
+					},
+				});
+			});
+
+		setSelectedTask([]);
+	};
+
+	const handleSelectedDelete = () => {
+		selectedTask.forEach((task) => {
+			removeTask(task.id);
+		});
+
+		setSelectedTask([]);
 	};
 
 	const addNewTask = () => {
@@ -150,6 +191,11 @@ const useDashboard = () => {
 		handleDragStart,
 		handleDragOver,
 		handleDrop,
+
+		selectedTask,
+		handleSelected,
+		handleSelectedDelete,
+		handleSelectedStatusChange,
 
 		resetForm,
 	};
