@@ -5,9 +5,10 @@ import ProtectedRoutes from "./new_compo/ProtectedRoutes/ProtectedRoutes";
 import UserProfile from "./new_compo/UserProfile/components/Index";
 import { AuthProvider } from "./context/AuthContext";
 import LoginSignup from "./new_compo/LoginComponent/component/Index";
-import Header from "./new_compo/Header/Header";
 import { ApiProvider } from "@reduxjs/toolkit/query/react";
 import { api } from "./Store/apiSlice";
+import Header from "./new_compo/Header/components/Index";
+import TaskBoardShimmer from "./new_compo/ShimmerUI/TaksBoard/Index";
 
 const router = createBrowserRouter([
 	{
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
 					<>
 						<Header />
 						<DashboardNEW />
+						{/* <TaskBoardShimmer /> */}
 					</>
 				),
 			},

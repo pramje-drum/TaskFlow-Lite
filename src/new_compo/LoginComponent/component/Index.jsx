@@ -40,28 +40,29 @@ const LoginSignup = ({ setAuth }) => {
 					overlayClassName="fixed inset-0 bg-black/70 flex items-center justify-center"
 				>
 					<div className="h-[70vh] w-[70vw] flex  bg-bg_color text-white rounded-xl ">
-						{/* LEFT IMAGE */}
-						<div className="w-[45%] h-full">
+						{/* left image */}
+						<div className="w-[45%] md:block hidden h-full">
 							<img
 								src={poster}
 								alt="signup poster"
 								className="h-full w-full object-cover"
 							/>
 						</div>
-
-						{/* RIGHT FORM */}
-						<div className="w-[55%] h-full flex overflow-auto items-center justify-center px-12 py-10">
+						{/* right form */}
+						<div className="md:w-[55%] w-full  h-full flex overflow-auto no-scrollbar items-center justify-center px-12 py-15">
 							<div className="w-full max-w-md">
 								<h1 className="text-2xl font-semibold text-center mt-4 mb-2">
 									{isLogin ? "Login" : "Sign Up"}
 								</h1>
 
-								<div className="flex items-center justify-center gap-3 mb-6 text-xs text-gray-300">
-									<span className="h-px w-12 bg-white"></span>
-									<span>
+								<div className="flex items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6 text-[10px] sm:text-xs md:text-sm text-gray-300">
+									<span className="h-px w-6 sm:w-10 md:w-12 bg-white"></span>
+
+									<span className="text-center px-2">
 										{isLogin ? "Login with Username" : "Sign Up With e-mail"}
 									</span>
-									<span className="h-px w-12 bg-white"></span>
+
+									<span className="h-px w-6 sm:w-10 md:w-12 bg-white"></span>
 								</div>
 
 								<form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

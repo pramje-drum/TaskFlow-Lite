@@ -27,11 +27,10 @@
 			linear-gradient(#2c0e48, #2c0e48) padding-box,
 			linear-gradient(to right, #f2c21b, #c16b08) border-box;
 	}
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
 }
-
-
-
-
 
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {

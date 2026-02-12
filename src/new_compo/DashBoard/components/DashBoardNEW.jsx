@@ -4,6 +4,7 @@ import { Columns } from "../constants/Columns";
 import SearchTask from "./SearchTask";
 import Modal from "react-modal";
 import useDashboard from "../hooks/useDashboard";
+import TaskBoardShimmer from "../../ShimmerUI/TaksBoard/Index";
 
 const DashboardNEW = () => {
 	const {
@@ -42,7 +43,7 @@ const DashboardNEW = () => {
 	} = useDashboard();
 
 	// console.log(editingTask, "temp");
-	if (loading) return <p>Loading Tasks...</p>;
+	if (loading) return <TaskBoardShimmer/>;
 	if (error) return <p>Something went wrong...</p>;
 
 	return (
@@ -91,6 +92,37 @@ const DashboardNEW = () => {
 			</Modal>
 
 			<SearchTask searchVal={searchVal} setSearchVal={setSearchVal} />
+
+			<div className="mb-6">
+				{selectedTask.length !== 0 && (
+					<div className="flex justify-between items-center border border-white/15 px-6 rounded-2xl mt-4 py-4">
+						<button
+							onClick={handleSelectedDelete}
+							className="bg-red-500 mr-6 cursor-pointer px-5 py-2 rounded-lg text-sm "
+						>
+							Delete Selected
+						</button>
+
+						<select
+							onChange={(e) => handleSelectedStatusChange(e.target.value)}
+							className="border px-4 py-2 rounded-lg  text-yellow-200 bg-task-bg"
+						>
+							<option value="" className="text-black">
+								Move To :
+							</option>
+							<option value="todo" className="text-black">
+								To-Do
+							</option>
+							<option value="inProgress" className="text-black">
+								In Progress
+							</option>
+							<option value="completed" className="text-black">
+								Completed
+							</option>
+						</select>
+					</div>
+				)}
+			</div>
 
 			<div className="flex flex-wrap gap-6 overflow-x-auto w-full justify-center">
 				{Object.keys(Columns).map((columnId) => (
