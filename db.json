@@ -20,7 +20,7 @@
       "email": "ser@gmail.com",
       "phone": "7812456827",
       "gender": "Female",
-      "dob": "2026-02-25",
+      "dob": "0001-02-25",
       "address": "cef",
       "pincode": "984978",
       "state": "Goa",
@@ -41,11 +41,11 @@
     },
     {
       "id": "1770613730554",
-      "fullname": "qwerty",
+      "fullname": "makdoos bhai op",
       "username": "maksood_bhai",
       "email": "piyush+1@gmail.com",
       "phone": "7451154896",
-      "gender": "Female",
+      "gender": "Other",
       "dob": "2007-11-28",
       "address": "cef",
       "pincode": "984978",
@@ -105,7 +105,7 @@
       "password": "qwerty"
     },
     {
-      "id": 1770694227948,
+      "id": "1770694227948",
       "fullname": "",
       "username": "Your",
       "email": "your@gmail.com",
@@ -116,6 +116,32 @@
       "pincode": "",
       "state": "",
       "password": "234567"
+    },
+    {
+      "id": "1770898775467",
+      "fullname": "",
+      "username": "maksood_bhai2",
+      "email": "maksood@gmail.com",
+      "phone": "1234567890",
+      "gender": "",
+      "dob": "",
+      "address": "",
+      "pincode": "",
+      "state": "",
+      "password": "qwerty"
+    },
+    {
+      "id": "1770899995237",
+      "fullname": "",
+      "username": "shivank3",
+      "email": "shivamk3@gmail.com",
+      "phone": "1234567890",
+      "gender": "",
+      "dob": "",
+      "address": "",
+      "pincode": "",
+      "state": "",
+      "password": "qwerty"
     }
   ],
   "tasks": [
@@ -193,13 +219,13 @@
     },
     {
       "content": "ekjfkhkewfh",
-      "status": "inProgress",
+      "status": "todo",
       "date": "7890-04-12",
       "id": "1770809307047"
     },
     {
       "content": "dshfkjhfkesf",
-      "status": "inProgress",
+      "status": "completed",
       "date": "4567-03-01",
       "id": "1770809318692"
     },
@@ -211,7 +237,7 @@
     },
     {
       "content": "kdfskfksfswf",
-      "status": "completed",
+      "status": "inProgress",
       "date": "7890-04-23",
       "id": "1770809336078"
     },
@@ -223,19 +249,19 @@
     },
     {
       "content": "terst",
-      "status": "todo",
+      "status": "completed",
       "date": "5678-03-12",
       "id": "1770819991307"
     },
     {
-      "id": "1770820021645",
       "content": "hdfhhgf",
       "status": "todo",
-      "date": "2026-02-10"
+      "date": "2026-02-10",
+      "id": "1770820021645"
     },
     {
       "content": "testrrrr",
-      "status": "inProgress",
+      "status": "completed",
       "date": "2026-02-10",
       "id": "1770820040818"
     },
@@ -250,6 +276,12 @@
       "status": "todo",
       "date": "2026-02-19",
       "id": "1770868844662"
+    },
+    {
+      "id": "1770903294729",
+      "content": "sdf",
+      "status": "todo",
+      "date": "2026-02-10"
     }
   ]
 }

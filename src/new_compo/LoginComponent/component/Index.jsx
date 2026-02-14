@@ -5,14 +5,18 @@ import HeaderLogin from "./HeaderLogin";
 // import Input from "../../Common/Input";
 import Input from "../../Common/InputController/Input";
 import useAuthForm from "../hooks/useAuthForm";
+// import { useNavigate } from "react-router-dom";
+// import { useAuth } from "../../../Store/ReducerStore/Index";
 
 Modal.setAppElement("#root");
 
 const LoginSignup = ({ setAuth }) => {
 	const { control, handleSubmit, onSubmit, isLogin, toggleMode } =
 		useAuthForm(setAuth);
+	// const navigate = useNavigate();
 
 	const [isOpen, setIsOpen] = useState(false);
+	// const { state } = useAuth();
 
 	const openLogin = () => {
 		if (!isLogin) toggleMode();
@@ -23,6 +27,11 @@ const LoginSignup = ({ setAuth }) => {
 		if (isLogin) toggleMode();
 		setIsOpen(true);
 	};
+	// useEffect(() => {
+	// 	if (!!state.token) {
+	// 		navigate("/dashboard");
+	// 	}
+	// }, []);
 
 	return (
 		<>
@@ -90,8 +99,13 @@ const LoginSignup = ({ setAuth }) => {
 												control={control}
 												name="phone"
 												label="Phone No."
+												message="Phone no. should be 10 digits"
 												placeholder="2156562651"
-												rules={{ required: true, maxLength: 10, minLength: 10 }}
+												rules={{
+													required: true,
+													maxLength: 10,
+													minLength: 10,
+												}}
 											/>
 										</>
 									)}

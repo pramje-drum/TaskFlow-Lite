@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { getUser, addUser } from "../../../services/useProfile";
-import { useAuth } from "../../../context/AuthContext";
+// import { useAuth } from "../../../context/AuthContext";
 import { toast } from "react-toastify";
+import { useAuth } from "../../../Store/ReducerStore/Index";
 
 const useAuthForm = () => {
 	const { control, handleSubmit, reset } = useForm({
@@ -23,7 +24,8 @@ const useAuthForm = () => {
 		},
 	});
 
-	const { login } = useAuth();
+	// const { login } = useAuth();
+	const { dispatch } = useAuth();
 	const [isLogin, setIsLogin] = useState(true);
 	const navigate = useNavigate();
 
@@ -43,7 +45,17 @@ const useAuthForm = () => {
 					return;
 				}
 
-				login("dummy-token-123", user);
+				localStorage.setItem("token", "dummy-token-123");
+				localStorage.setItem("currentUser", JSON.stringify(user));
+
+				// login("dummy-token-123", user);
+				dispatch({
+					type: "LOGIN",
+					payload: {
+						token: "dummy-token-123",
+						user: user,
+					},
+				});
 				navigate("/dashboard");
 				toast("Log-In Successfull");
 				return;
@@ -83,7 +95,18 @@ const useAuthForm = () => {
 
 			await addUser(newUser);
 
-			login("dummy-token-123", newUser);
+			// login("dummy-token-123", newUser);
+			localStorage.setItem("token", "dummy-token-123");
+			localStorage.setItem("currentUser", JSON.stringify(newUser));
+
+			dispatch({
+				type: "LOGIN",
+				payload: {
+					token: "dummy-token-123",
+					user: newUser,
+				},
+			});
+
 			toast("Account created successfully");
 
 			navigate("/dashboard");

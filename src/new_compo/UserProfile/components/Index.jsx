@@ -1,9 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import UserProfileForm from "./UserProfileForm";
 import UserProfileHead from "./UserProfileHead";
-
+// import { useAuth } from "../../../Store/ReducerStore/Index";
+// import { useEffect } from "react";
 const UserProfile = () => {
 	const navigate = useNavigate();
+	// const {dispatch} = useAuth();
+	// useEffect(() => {
+	// 	const token = localStorage.getItem("token");
+	// 	const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+	// 	if (token && currentUser) {
+	// 		dispatch({ type: "GET_DATA", payload: { token, user: currentUser } });
+	// 	}
+	// }, [dispatch]);
 
 	return (
 		<div className="bg-input_bg min-h-screen py-10 px-6">

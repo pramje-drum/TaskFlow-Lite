@@ -3,9 +3,9 @@ import useHeader from "../hooks/useHeader";
 
 const Header = () => {
 	const {
-		isAuthenticated,
+		isAuthenticated = false,
 		handleProfile,
-		showLogoutModal,
+		showLogoutModal = false,
 		setShowLogoutModal,
 		handleConfirmLogout,
 	} = useHeader();

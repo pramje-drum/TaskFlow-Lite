@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 
-const useSearchFilter = ( setSearchVal, checkSize ) => {
+const useSearchFilter = ( setSearchVal, checkSize=0 ) => {
 	const timeoutRef = useRef(null);
 	const [inputValue, setInputValue] = useState("");
 

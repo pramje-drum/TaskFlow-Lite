@@ -1,11 +1,16 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import Input from "../../Common/InputController/Input"
+import Input from "../../Common/InputController/Input";
 import { ProfileSectionFields } from "../constants/ProfileSectionFields";
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../../Store/ReducerStore/Index";
+import { toast } from "react-toastify";
+import { updateDBUser } from "../../../services/useProfile";
+// import { useAuth } from "../../../context/AuthContext";
 
 const UserProfileForm = () => {
-	const { user, updateUser } = useAuth();
+	// const { user, updateUser } = useAuth();
+	const { state, dispatch } = useAuth();
+	const user = state.user;
 
 	const { control, handleSubmit, reset } = useForm({
 		defaultValues: {
@@ -38,16 +43,32 @@ const UserProfileForm = () => {
 	}, [user, reset]);
 
 	const onSubmit = (data) => {
+		const isSame = Object.keys(data).some((key) => data[key] !== user[key]);
+
+		if (!isSame) {
+			toast.error("No Field Updated!!");
+			return;
+		}
+
 		const updatedUser = {
 			...user,
 			...data,
 		};
+		localStorage.setItem("currentUser", JSON.stringify(updatedUser));
 
+		// updateUser(updatedUser);
+		dispatch({
+			type: "UPDATE_USER",
+			payload: updatedUser,
+		});
 
+		//Update at db as well
+		updateDBUser(updatedUser.id, updatedUser).catch((err) =>
+			console.error("DB update failed", err),
+		);
 
-		updateUser(updatedUser);
-		// console.log("Updated Profile", updatedUser);
-		alert("Profile updated successfully");
+		console.log("Updated Profile", updatedUser);
+		toast.success("Profile updated successfully");
 	};
 
 	return (
@@ -63,6 +84,7 @@ const UserProfileForm = () => {
 						placeholder={field.placeholder}
 						rules={field.rules}
 						options={field.options}
+						message={field.message}
 						disabled={["username", "email"].includes(field.name)}
 					/>
 				))}
