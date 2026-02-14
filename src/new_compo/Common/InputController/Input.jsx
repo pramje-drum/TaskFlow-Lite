@@ -10,6 +10,7 @@ const Input = ({
 	rules = {},
 	options = [],
 	disabled = false,
+	message,
 }) => {
 	return (
 		<div className={type === "checkbox" ? "mb-4" : "flex flex-col mb-4"}>
@@ -32,6 +33,7 @@ const Input = ({
 						placeholder={placeholder}
 						options={options}
 						disabled={disabled}
+						message= {message}
 					/>
 				)}
 			/>

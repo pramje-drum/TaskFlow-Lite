@@ -4,14 +4,26 @@ export const ProfileSectionFields = [
 		type: "text",
 		label: "Full Name",
 		placeholder: "Enter full name",
-		rules: { required: "Full Name is required" },
+		rules: {
+			required: "Full Name is required",
+			minLength: {
+				value: 3,
+				message: "Full Name must be at least 3 characters",
+			},
+		},
 	},
 	{
 		name: "username",
 		type: "text",
 		label: "Username",
 		placeholder: "Enter username",
-		rules: { required: "Username is required" },
+		rules: {
+			required: "Username is required",
+			minLength: {
+				value: 3,
+				message: "Username must be at least 3 characters",
+			},
+		},
 	},
 	{
 		name: "email",
@@ -20,7 +32,10 @@ export const ProfileSectionFields = [
 		placeholder: "example@domain.com",
 		rules: {
 			required: "Email is required",
-			pattern: { value: /^\S+@\S+\.\S+$/, message: "Invalid email address" },
+			pattern: {
+				value: /^\S+@\S+\.\S+$/,
+				message: "Invalid email address",
+			},
 		},
 	},
 	{
@@ -28,9 +43,12 @@ export const ProfileSectionFields = [
 		type: "tel",
 		label: "Phone Number",
 		placeholder: "Enter phone number",
+		message: "Phone number must be exactly 10 digits",
 		rules: {
-			required: "Phone number should be 10 Digits",
-			pattern: { value: /^[0-9]{10}$/, message: "Invalid phone number" },
+			required: "Phone number is required",
+			pattern: {
+				value: /^[0-9]{10}$/,
+			},
 		},
 	},
 	{
@@ -39,31 +57,43 @@ export const ProfileSectionFields = [
 		label: "Gender",
 		placeholder: "Select gender",
 		options: ["Male", "Female", "Other"],
-		rules: { required: "Gender is required" },
+		rules: {
+			required: "Gender is required",
+		},
 	},
 	{
 		name: "dob",
 		type: "date",
 		label: "Date of Birth",
 		placeholder: "YYYY-MM-DD",
-		rules: { required: "Date of Birth is required" },
+		rules: {
+			required: "Date of Birth is required",
+		},
 	},
 	{
 		name: "address",
 		type: "text",
 		label: "Address",
 		placeholder: "Street, Apartment, City",
-		rules: { required: "Address is required" },
+		rules: {
+			required: "Address is required",
+			minLength: {
+				value: 1,
+				message: "Address must be at least 5 characters",
+			},
+		},
 	},
 	{
 		name: "pincode",
-		type: "number",
+		type: "tel",
 		label: "Pincode",
 		placeholder: "Enter 6-digit pincode",
 		rules: {
-			required: "Pincode should be 6 Digits",
-			minLength: { value: 6, message: "Pincode must be 6 digits" },
-			maxLength: { value: 6, message: "Pincode must be 6 digits" },
+			required: "Pincode is required",
+			pattern: {
+				value: /^[0-9]{6}$/,
+				message: "Pincode must be exactly 6 digits",
+			},
 		},
 	},
 	{
@@ -100,15 +130,9 @@ export const ProfileSectionFields = [
 			"Uttar Pradesh",
 			"Uttarakhand",
 			"West Bengal",
-			"Delhi",
-			"Jammu & Kashmir",
-			"Ladakh",
-			"Chandigarh",
-			"Puducherry",
-			"Andaman & Nicobar Islands",
-			"Dadra & Nagar Haveli and Daman & Diu",
-			"Lakshadweep",
 		],
-		rules: { required: "State is required" },
+		rules: {
+			required: "State is required",
+		},
 	},
 ];

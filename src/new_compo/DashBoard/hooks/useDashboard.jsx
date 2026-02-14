@@ -71,8 +71,8 @@ const useDashboard = () => {
 	};
 
 	const addNewTask = () => {
-		if (!newTask.trim()) return alert("Task Content Empty!!");
-		if (!dueDate.trim()) return alert("Date Content Empty!!");
+		if (!newTask.trim()) return toast("Task Content Empty!!");
+		if (!dueDate.trim()) return toast("Date Content Empty!!");
 
 		// const resetForm = () => {
 		// 	setNewTask("");

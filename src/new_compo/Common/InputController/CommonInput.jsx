@@ -1,4 +1,10 @@
-const CommonInput = ({ field, type, error, placeholder, disabled }) => {
+const CommonInput = ({
+	field = [],
+	type,
+	error = [],
+	placeholder = "",
+	disabled = false,
+}) => {
 	return (
 		<input
 			{...field}

@@ -8,6 +8,7 @@ const InputRender = ({
 	placeholder = "",
 	options = [],
 	disabled = false,
+	message,
 }) => {
 	if (type === "checkbox") {
 		return (
@@ -84,10 +85,13 @@ const InputRender = ({
 				error={error}
 				placeholder={placeholder}
 				disabled={disabled}
+				message={message}
 			/>
 
 			{error && (
-				<p className="text-red-500 text-xs mt-1">{label} is required</p>
+				<p className="text-red-500 text-xs mt-1">
+					{!message ? label + " is required" : message}
+				</p>
 			)}
 		</>
 	);
